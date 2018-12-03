@@ -34,7 +34,6 @@ pyparsing==2.0.3
 pyperclip==1.6.2
 python-dateutil==2.7.3
 python-editor==1.0.3
-python-systemd==231
 pyxdg==0.25
 reportlab==3.3.0
 requests==2.9.1
