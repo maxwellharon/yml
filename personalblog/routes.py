@@ -6,8 +6,26 @@ from personalblog import app, db, bcrypt
 from personalblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
 from personalblog.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
+from personalblog.forms import SearchForm
 
+@app.route('/search', methods=['GET', 'POST'])
+@login_required
+def search():
+    form = SearchForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        return redirect((url_for('search_results', query=form.search.data)))  # or what you want
+    return render_template('search.html', form=form)
+# def search():
+#     form = SearchForm()
+#     if not form.validate_on_submit():
+#         returnredirect(url_for('index'))
+#     return redirect((url_for('search_results', query=form.search.data)))
 
+@app.route('/search_results/<query>')
+@login_required
+def search_results(query):
+    results = User.query.whoosh_search(query).all()
+    return render_template('search_results.html', query=query, results=results)
 
 posts = [
     {
