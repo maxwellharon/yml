@@ -19,7 +19,7 @@
 </head>
 <body>
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <nav class="navbar navbar-expand-md navbar-dark bg-gray fixed-top">
         <div class="container">
           <a class="navbar-brand mr-4" href="/">RegiBiz</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,6 +42,16 @@
                 <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
               {% endif %}
             </div>
+            <a class="nav-link dropdown-toggle" href="#"
+                 id="navbarDropdown" role="button" data-toggle="dropdown"
+                 style="font-family: 'Kodchasan', sans-serif;" aria-haspopup="true" aria-expanded="false">
+               FILTER BY LOCATION
+              </a>
+              <a class="nav-link dropdown-toggle" href="#"
+                   id="navbarDropdown" role="button" data-toggle="dropdown"
+                   style="font-family: 'Kodchasan', sans-serif;" aria-haspopup="true" aria-expanded="false">
+                 FILTER BY CATEGORY
+                </a>
           </div>
         </div>
       </nav>
